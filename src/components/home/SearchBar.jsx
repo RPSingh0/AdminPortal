@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SearchButton from "../../ui/SearchButton";
+import {useEffect, useState} from "react";
 
 const StyledSearchBarContainer = styled.div`
     display: flex;
@@ -16,17 +17,22 @@ const StyledSearchInput = styled.input`
     padding: 0.4rem 1rem;
     color: #252c51;
     width: 100%;
-    
+
     &:focus {
         outline: none;
     }
 `;
 
-function SearchBar() {
+function SearchBar({inputValue, setInputValue}) {
+
     return (
         <StyledSearchBarContainer>
             <SearchButton/>
-            <StyledSearchInput placeholder={"Search"}/>
+            <StyledSearchInput
+                placeholder={"Search"}
+                value={inputValue}
+                onChange={(event) => setInputValue(event.target.value)}
+            />
         </StyledSearchBarContainer>
     );
 }

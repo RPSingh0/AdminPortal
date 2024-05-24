@@ -29,13 +29,15 @@ const dataSlice = createSlice({
 export const isDataLoading = state => state.data.isLoading;
 export const isErrorLoadingData = state => state.data.isError;
 export const getData = state => state.data.data;
-export const getResources = tagName => state => {
+export const getResources = (tagName, searchText) => state => {
 
     if (tagName === 'resources') {
-        return state.data.data;
+        return state.data.data.filter(resource => resource.title.includes(searchText));
     }
 
-    return state.data.data.filter(resource => resource.tag === tagName)
+    return state.data.data.filter(resource => {
+        return (resource.tag === tagName) && (resource.title.includes(searchText));
+    });
 };
 
 export const {setData, fetchingData, fetchingError} = dataSlice.actions;
@@ -53,7 +55,9 @@ export function fetchData() {
 
         const data = await result.json();
 
-        setTimeout(() => dispatch({type: "data/setData", payload: data}), 4000);
+        data.sort((a, b) => parseInt(a) - parseInt(b));
+
+        dispatch({type: "data/setData", payload: data});
     }
 }
 
