@@ -1,9 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit";
 import globalReducer from "./globalSlice";
+import dataReducer from "./components/home/dataSlice";
 
 const store = configureStore({
     reducer: {
-        global: globalReducer
+        global: globalReducer,
+        data: dataReducer
     }
 });
 

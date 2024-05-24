@@ -18,6 +18,12 @@ const buttonSizes = {
         padding: 1.2rem 2.4rem;
         font-weight: 500;
     `,
+    fullWidth: css`
+        font-size: 1.8rem;
+        padding: 1.2rem 3.2rem;
+        font-weight: 500;
+        width: 100%;
+    `
 }
 
 const buttonVariations = {

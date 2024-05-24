@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import User from "./User";
 import BaseButton from "../../ui/BaseButton";
-import {useDispatch} from "react-redux";
-import {switchToAddItemPage} from "../../globalSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {getIsOnAddItemPage, switchToAddItemPage} from "../../globalSlice";
 
 const StyledNavBar = styled.div`
     display: flex;
@@ -23,6 +23,7 @@ const StyledNavBarFiller = styled.div`
 function NavBar() {
 
     const dispatch = useDispatch();
+    const isAddItemPage = useSelector(getIsOnAddItemPage);
 
     function handleChangeToAddItemPage() {
         dispatch(switchToAddItemPage());
@@ -32,9 +33,12 @@ function NavBar() {
         <StyledNavBar>
             <Logo/>
             <StyledNavBarFiller/>
-            <BaseButton variation={'cta'} size={"medium"} onClick={handleChangeToAddItemPage}>
-                Add Item
-            </BaseButton>
+            {!isAddItemPage &&
+                <BaseButton variation={'cta'} size={"medium"} onClick={handleChangeToAddItemPage}>
+                    Add Item
+                </BaseButton>
+            }
+
             <User/>
         </StyledNavBar>
     );
