@@ -5,6 +5,7 @@ import ResourceTab from "./ResourceTab";
 import styled from "styled-components";
 import SearchBar from "./SearchBar";
 import DataGrid from "./DataGrid";
+import useDebounce from "../../hooks/useDebounce";
 
 const StyledHomeDataContainer = styled.div`
     display: flex;
@@ -19,7 +20,8 @@ function HomeData() {
 
     const [currentTab, setCurrentTab] = useState('resources');
     const [searchInput, setSearchInput] = useState("");
-    const currentTabData = useSelector(getResources(currentTab, searchInput));
+    const delayedSearch = useDebounce(searchInput, 500);
+    const currentTabData = useSelector(getResources(currentTab, delayedSearch));
 
     return (
         <StyledHomeDataContainer>

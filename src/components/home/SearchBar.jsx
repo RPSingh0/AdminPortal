@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import SearchButton from "../../ui/SearchButton";
-import {useEffect, useState} from "react";
 
 const StyledSearchBarContainer = styled.div`
     display: flex;

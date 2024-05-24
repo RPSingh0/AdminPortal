@@ -32,11 +32,11 @@ export const getData = state => state.data.data;
 export const getResources = (tagName, searchText) => state => {
 
     if (tagName === 'resources') {
-        return state.data.data.filter(resource => resource.title.includes(searchText));
+        return state.data.data.filter(resource => resource.title.toLowerCase().includes(searchText.toLowerCase()));
     }
 
     return state.data.data.filter(resource => {
-        return (resource.tag === tagName) && (resource.title.includes(searchText));
+        return (resource.tag === tagName) && (resource.title.toLowerCase().includes(searchText.toLowerCase()));
     });
 };
 
