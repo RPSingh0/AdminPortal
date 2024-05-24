@@ -5,6 +5,7 @@ const tabButtonVariation = {
     selected: css`
         color: whitesmoke;
         background-color: #0b69ff;
+        transition: all 0.5s ease;
 
         &:hover {
             background-color: #0a48ff;
@@ -13,6 +14,7 @@ const tabButtonVariation = {
     normal: css`
         color: #252c51;
         background: #f3f4f7;
+        transition: all 0.5s ease;
 
         &:hover {
             background-color: #c0c1c3;
@@ -20,10 +22,13 @@ const tabButtonVariation = {
     `
 };
 
-const StyledTabButton = styled(BaseButton)`
+const StyledTabButton = styled.div`
     border: 1px solid lightgrey;
     border-radius: 0;
     text-transform: capitalize;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.6rem;
 
     ${props => {
         if (props.selected) {

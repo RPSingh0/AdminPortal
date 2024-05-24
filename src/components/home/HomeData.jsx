@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useSelector} from "react-redux";
 import {getResources} from "./dataSlice";
 import ResourceTab from "./ResourceTab";
@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 import DataGrid from "./DataGrid";
 import useDebounce from "../../hooks/useDebounce";
 
-const StyledHomeDataContainer = styled.div`
+const StyledHomeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,6 +15,16 @@ const StyledHomeDataContainer = styled.div`
     padding: 1rem;
 `;
 
+const StyledHomeDataContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 80%;
+    
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+`;
 
 function HomeData() {
 
@@ -24,11 +34,13 @@ function HomeData() {
     const currentTabData = useSelector(getResources(currentTab, delayedSearch));
 
     return (
-        <StyledHomeDataContainer>
+        <StyledHomeContainer>
             <ResourceTab selectedTab={currentTab} selectTab={setCurrentTab}/>
-            <SearchBar inputValue={searchInput} setInputValue={setSearchInput}/>
-            <DataGrid data={currentTabData} key={currentTab}/>
-        </StyledHomeDataContainer>
+            <StyledHomeDataContainer>
+                <SearchBar inputValue={searchInput} setInputValue={setSearchInput}/>
+                <DataGrid data={currentTabData} key={currentTab}/>
+            </StyledHomeDataContainer>
+        </StyledHomeContainer>
     );
 }
 

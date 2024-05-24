@@ -8,9 +8,15 @@ const StyledDataGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
-    width: 80%;
     max-width: 100dvw;
-    overflow: scroll;
+    
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 function DataGrid({data}) {

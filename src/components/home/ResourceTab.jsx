@@ -2,10 +2,19 @@ import TabButton from "../../ui/TabButton";
 import styled from "styled-components";
 
 const StyledTabContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 60%;
     border-radius: 9px;
+    align-self: center;
+
+    @media (max-width: 1024px) {
+        width: 80%;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 function ResourceTab({selectedTab, selectTab}) {

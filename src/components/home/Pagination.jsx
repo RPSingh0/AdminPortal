@@ -7,7 +7,6 @@ const StyledPaginationContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
 `;
 
 const StyledCurrentPageNumber = styled.p`

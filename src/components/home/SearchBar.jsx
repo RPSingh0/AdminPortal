@@ -9,6 +9,10 @@ const StyledSearchBarContainer = styled.div`
     border: 1px solid #dbe3eb;
     padding: 1rem;
     width: 50%;
+    
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 const StyledSearchInput = styled.input`

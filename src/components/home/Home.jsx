@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import {lazy, Suspense, useEffect, useState} from "react";
+import {lazy, Suspense, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData, isDataLoading, isErrorLoadingData} from "./dataSlice";
-// import HomeData from "./HomeData";
 const HomeData = lazy(() => import("./HomeData"));
 
 const StyledHomePageContainer = styled.div`
+    padding: 2rem;
 `;
 
 function Home() {
