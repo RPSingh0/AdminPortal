@@ -4,6 +4,9 @@ import styled from "styled-components";
 
 const StyledAppContainer = styled.div`
     max-width: 100dvw;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 `;
 
 function App() {

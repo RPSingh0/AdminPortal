@@ -85,7 +85,7 @@ function DataGridCard({cardData}) {
                     </StyledCardCategory>
                 </StyledCardHeaderData>
             </StyledCardHeader>
-            <StyledCardLink href={"#"}>
+            <StyledCardLink href={link}>
                 {link}
             </StyledCardLink>
             <StyledCardDescription>

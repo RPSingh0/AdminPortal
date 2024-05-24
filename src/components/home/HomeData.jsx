@@ -11,14 +11,14 @@ const StyledHomeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
     padding: 1rem;
 `;
 
 const StyledHomeDataContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
     width: 80%;
     
     @media (max-width: 768px) {
