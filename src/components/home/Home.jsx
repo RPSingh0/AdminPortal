@@ -2,6 +2,8 @@ import styled from "styled-components";
 import {lazy, Suspense, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData, isDataLoading, isErrorLoadingData} from "./dataSlice";
+import {toast} from "react-toastify";
+
 const HomeData = lazy(() => import("./HomeData"));
 
 const StyledHomePageContainer = styled.div`

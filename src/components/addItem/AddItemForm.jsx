@@ -4,6 +4,7 @@ import InputSelect from "../../ui/InputSelect";
 import InputTextArea from "../../ui/InputTextArea";
 import BaseButton from "../../ui/BaseButton";
 import {createResourceService} from "../../services/resourceService";
+import {toast} from "react-toastify";
 
 const StyledAddItemFormContainer = styled.div`
     display: flex;
@@ -41,18 +42,19 @@ function AddItemForm() {
         const {title, link, iconUrl, tagName, category, description} = data;
 
         if (!title || !link || !iconUrl || !tagName || !category || !description) {
-            // TODO throw visual error
+            toast.error("Error creating resource")
             return;
         }
 
         const response = await createResourceService();
 
         if (response.status !== 200) {
-            // TODO throw visual error
+            toast.error("Error creating resource")
             return;
         }
 
-        // TODO display success message
+        toast.success("Resource Added");
+        event.target.reset();
     }
 
     return (
@@ -66,7 +68,7 @@ function AddItemForm() {
                     label={"Item Title"}
                     name={"title"}
                     required
-                    minlength={5}
+                    minLength={5}
                 />
                 <InputField
                     id={"link"}
@@ -94,14 +96,14 @@ function AddItemForm() {
                     label={"Category"}
                     name={"category"}
                     required
-                    minlength={5}
+                    minLength={5}
                 />
                 <InputTextArea
                     id={"description"}
                     label={"Description"}
                     name={"description"}
                     required
-                    minlength={10}
+                    minLength={10}
                 />
                 <BaseButton size={"large"} type={"submit"}>
                     Create

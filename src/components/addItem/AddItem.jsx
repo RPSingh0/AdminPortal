@@ -8,6 +8,14 @@ const StyledAddItemPageContainer = styled.div`
     flex-grow: 1;
     height: 100%;
     width: 100%;
+    
+    @media (max-width: 1024px) {
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 function AddItem() {

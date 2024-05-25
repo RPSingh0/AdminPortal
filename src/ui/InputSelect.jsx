@@ -5,6 +5,18 @@ const StyledInputContainer = styled.div`
     flex-direction: column;
     gap: 1rem;
     width: 60%;
+
+    @media (max-width: 600px) {
+        width: 80%;
+    }
+
+    @media (max-width: 425px) {
+        width: 90%;
+    }
+
+    @media (max-width: 375px) {
+        width: 100%;
+    }
 `;
 
 const StyledSelect = styled.select`
