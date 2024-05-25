@@ -2,7 +2,8 @@ import styled from "styled-components";
 import {lazy, Suspense, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData, isDataLoading, isErrorLoadingData} from "./dataSlice";
-import {toast} from "react-toastify";
+import LoadingSpinner from "../../ui/LoadingSpinner";
+import ErrorFetchingData from "../../ui/ErrorFetchingData";
 
 const HomeData = lazy(() => import("./HomeData"));
 
@@ -16,8 +17,6 @@ function Home() {
     const isLoadingData = useSelector(isDataLoading);
     const isErrorLoading = useSelector(isErrorLoadingData);
 
-    console.log('loading', isLoadingData);
-
     useEffect(() => {
         dispatch(fetchData());
     }, []);
@@ -26,13 +25,13 @@ function Home() {
         <Suspense>
             <StyledHomePageContainer>
                 {
-                    isLoadingData && <p>Loading...</p>
+                    isLoadingData && <LoadingSpinner/>
                 }
                 {
                     !isLoadingData && !isErrorLoading && <HomeData/>
                 }
                 {
-                    isErrorLoading && <p>Error !!</p>
+                    isErrorLoading && <ErrorFetchingData message={"Error Loading Data!"}/>
                 }
             </StyledHomePageContainer>
         </Suspense>

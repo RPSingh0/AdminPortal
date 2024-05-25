@@ -6,6 +6,7 @@ import styled from "styled-components";
 import SearchBar from "./SearchBar";
 import DataGrid from "./DataGrid";
 import useDebounce from "../../hooks/useDebounce";
+import ErrorFetchingData from "../../ui/ErrorFetchingData";
 
 const StyledHomeContainer = styled.div`
     display: flex;
@@ -20,7 +21,7 @@ const StyledHomeDataContainer = styled.div`
     flex-direction: column;
     gap: 3rem;
     width: 80%;
-    
+
     @media (max-width: 768px) {
         width: 100%;
     }
@@ -38,7 +39,10 @@ function HomeData() {
             <ResourceTab selectedTab={currentTab} selectTab={setCurrentTab}/>
             <StyledHomeDataContainer>
                 <SearchBar inputValue={searchInput} setInputValue={setSearchInput}/>
-                <DataGrid data={currentTabData} key={currentTab}/>
+                {
+                    currentTabData.length === 0 ? <ErrorFetchingData message={"No Results!"}/> :
+                        <DataGrid data={currentTabData} key={currentTab}/>
+                }
             </StyledHomeDataContainer>
         </StyledHomeContainer>
     );
