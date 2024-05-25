@@ -4,6 +4,7 @@ import User from "./User";
 import BaseButton from "../../ui/BaseButton";
 import {useDispatch, useSelector} from "react-redux";
 import {getIsOnAddItemPage, switchToAddItemPage} from "../../globalSlice";
+import {isUserLoggedIn} from "../auth/authSlice";
 
 const StyledNavBar = styled.div`
     display: flex;
@@ -24,6 +25,7 @@ function NavBar() {
 
     const dispatch = useDispatch();
     const isAddItemPage = useSelector(getIsOnAddItemPage);
+    const isLoggedIn = useSelector(isUserLoggedIn);
 
     function handleChangeToAddItemPage() {
         dispatch(switchToAddItemPage());
@@ -33,13 +35,14 @@ function NavBar() {
         <StyledNavBar>
             <Logo/>
             <StyledNavBarFiller/>
-            {!isAddItemPage &&
-                <BaseButton variation={'cta'} size={"medium"} onClick={handleChangeToAddItemPage}>
-                    Add Item
-                </BaseButton>
+            {!isAddItemPage && isLoggedIn &&
+                <>
+                    <BaseButton variation={'cta'} size={"medium"} onClick={handleChangeToAddItemPage}>
+                        Add Item
+                    </BaseButton>
+                    <User/>
+                </>
             }
-
-            <User/>
         </StyledNavBar>
     );
 }

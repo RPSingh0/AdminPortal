@@ -11,13 +11,19 @@ const GlobalStyles = createGlobalStyle`
     html {
         font-size: 62.5%;
     }
-    
+
     body {
-        font-family: sans-serif, Serif;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 1px;
     }
 
     button {
         cursor: pointer;
+    }
+
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
     }
 `;
 

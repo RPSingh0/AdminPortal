@@ -41,7 +41,7 @@ function HomeData() {
                 <SearchBar inputValue={searchInput} setInputValue={setSearchInput}/>
                 {
                     currentTabData.length === 0 ? <ErrorFetchingData message={"No Results!"}/> :
-                        <DataGrid data={currentTabData} key={currentTab}/>
+                        <DataGrid data={currentTabData} key={currentTab + searchInput}/>
                 }
             </StyledHomeDataContainer>
         </StyledHomeContainer>

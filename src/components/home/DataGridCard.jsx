@@ -27,6 +27,7 @@ const StyledCardTitle = styled.p`
     font-size: 1.8rem;
     color: #171f46;
     font-weight: bold;
+    letter-spacing: 0;
 `;
 
 const StyledCardCategory = styled.p`

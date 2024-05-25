@@ -52,6 +52,12 @@ const BaseButton = styled.button`
     text-transform: uppercase;
     transition: background-color 0.5s ease;
 
+    &:disabled,
+    &:disabled:hover {
+        background-color: gray;
+        cursor: not-allowed;
+    }
+
     ${props => buttonSizes[props.size]}
     ${props => buttonVariations[props.variation]}
 `;

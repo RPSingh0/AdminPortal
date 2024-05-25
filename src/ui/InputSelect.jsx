@@ -4,19 +4,7 @@ const StyledInputContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 60%;
-
-    @media (max-width: 600px) {
-        width: 80%;
-    }
-
-    @media (max-width: 425px) {
-        width: 90%;
-    }
-
-    @media (max-width: 375px) {
-        width: 100%;
-    }
+    width: 100%;
 `;
 
 const StyledSelect = styled.select`
@@ -30,6 +18,10 @@ const StyledSelect = styled.select`
     &:focus {
         outline: none;
     }
+
+    &:disabled {
+        background-color: lightgrey;
+    }
 `;
 
 const StyledInputLabel = styled.label`
@@ -38,13 +30,13 @@ const StyledInputLabel = styled.label`
     font-weight: bold;
 `;
 
-function InputSelect({id, name, label, optionList, defaultOptionIndex}) {
+function InputSelect({id, name, label, optionList, ...props}) {
     return (
         <StyledInputContainer>
             <StyledInputLabel htmlFor={id}>
                 {label.toUpperCase()}
             </StyledInputLabel>
-            <StyledSelect id={id} name={name}>
+            <StyledSelect id={id} name={name} {...props}>
                 {optionList.map(option =>
                     <option>{option}</option>
                 )}
