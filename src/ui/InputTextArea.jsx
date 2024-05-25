@@ -1,32 +1,9 @@
 import styled from "styled-components";
-
-const StyledInputContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-`;
+import {commonInput, StyledInputContainer, StyledInputLabel} from "../styles/InputFieldStyles";
 
 const StyledInput = styled.textarea`
-    border: 1px solid #dbe3eb;
-    padding: 1.6rem;
-    color: #252c51;
-    width: 100%;
+    ${commonInput};
     resize: none;
-
-    &:focus {
-        outline: none;
-    }
-
-    &:disabled {
-        background-color: lightgrey;
-    }
-`;
-
-const StyledInputLabel = styled.label`
-    font-size: 1.2rem;
-    color: #7e858e;
-    font-weight: bold;
 `;
 
 function InputTextArea({id, name, label, ...props}) {

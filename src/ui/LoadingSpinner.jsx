@@ -1,17 +1,15 @@
 import styled from "styled-components";
+import {FixedPageCenterDivStyles} from "../styles/FixedPageCenterDivStyles";
 
 const StyledSpinnerContainer = styled.div`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    ${FixedPageCenterDivStyles};
 `;
 
 const StyledLoadingSpinner = styled.div`
     width: 4rem;
     height: 4rem;
-    border: 5px solid #016ec7;
-    border-bottom-color: white;
+    border: 5px solid var(--color-brand-normal);
+    border-bottom-color: var(--color-whitesmoke);
     border-radius: 50%;
     animation: rotation 1s linear infinite;
 

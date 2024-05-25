@@ -6,7 +6,7 @@ const StyledErrorUnOrderedList = styled.ul`
 `;
 
 const StyledErrorListItem = styled.li`
-    color: darkred;
+    color: var(--color-text-error);
 `;
 
 function ErrorList({errors}) {

@@ -1,34 +1,34 @@
 import styled, {css} from "styled-components";
-import BaseButton from "./BaseButton";
 
 const tabButtonVariation = {
     selected: css`
-        color: whitesmoke;
-        background-color: #0b69ff;
-        transition: all 0.5s ease;
+        color: var(--color-text-whitesmoke);
+        background-color: var(--color-brand-normal);
 
         &:hover {
-            background-color: #0a48ff;
+            background-color: var(--color-brand-hover);
         }
     `,
     normal: css`
-        color: #252c51;
-        background: #f3f4f7;
-        transition: all 0.5s ease;
+        color: var(--color-text-normal);
+        background: var(--color-tab-normal);
 
         &:hover {
-            background-color: #c0c1c3;
+            background-color: var(--color-tab-hover);
         }
     `
 };
 
 const StyledTabButton = styled.div`
-    border: 1px solid lightgrey;
-    border-radius: 0;
+    border: 1px solid var(--color-border);
     text-transform: capitalize;
     text-align: center;
     padding: 1rem 0;
     font-size: 1.6rem;
+    
+    &:hover {
+        cursor: pointer;
+    }
 
     ${props => {
         if (props.selected) {
@@ -45,7 +45,7 @@ StyledTabButton.defaultProps = {
 
 function TabButton({text, selected, onClick}) {
     return (
-        <StyledTabButton size={"fullWidth"} selected={selected} onClick={onClick}>
+        <StyledTabButton selected={selected} onClick={onClick}>
             {text}
         </StyledTabButton>
     );

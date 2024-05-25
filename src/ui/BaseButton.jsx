@@ -4,9 +4,7 @@ const buttonSizes = {
     small: css`
         font-size: 1.2rem;
         padding: 0.4rem 0.8rem;
-        text-transform: uppercase;
         font-weight: 600;
-        text-align: center;
     `,
     medium: css`
         font-size: 1.4rem;
@@ -18,43 +16,36 @@ const buttonSizes = {
         padding: 1.2rem 2.4rem;
         font-weight: 500;
     `,
-    fullWidth: css`
-        font-size: 1.8rem;
-        padding: 1.2rem 3.2rem;
-        font-weight: 500;
-        width: 100%;
-    `
 }
 
 const buttonVariations = {
     primary: css`
-        color: whitesmoke;
-        background-color: #0b69ff;
+        background-color: var(--color-brand-normal);
 
         &:hover {
-            background-color: #0a48ff;
+            background-color: var(--color-brand-hover);
         }
     `,
-    cta: css`
-        color: whitesmoke;
-        background: #2dca73;
+    secondary: css`
+        background: var(--color-button-secondary);
 
         &:hover {
-            background-color: #208d6a;
+            background-color: var(--color-button-secondary-hover);
         }
     `
 };
 
 const BaseButton = styled.button`
+    color: var(--color-text-whitesmoke);
     border: none;
     border-radius: 9px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     text-transform: uppercase;
-    transition: background-color 0.5s ease;
+    text-align: center;
 
     &:disabled,
     &:disabled:hover {
-        background-color: gray;
+        background-color: var(--color-button-disabled);
         cursor: not-allowed;
     }
 

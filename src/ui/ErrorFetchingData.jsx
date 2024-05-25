@@ -1,10 +1,8 @@
 import styled from "styled-components";
+import {FixedPageCenterDivStyles} from "../styles/FixedPageCenterDivStyles";
 
 const StyledErrorLoadingContainer = styled.div`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    ${FixedPageCenterDivStyles};
     display: flex;
     flex-direction: column;
     align-items: center;

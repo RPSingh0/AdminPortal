@@ -37,7 +37,7 @@ function NavBar() {
             <StyledNavBarFiller/>
             {!isAddItemPage && isLoggedIn &&
                 <>
-                    <BaseButton variation={'cta'} size={"medium"} onClick={handleChangeToAddItemPage}>
+                    <BaseButton variation={'secondary'} size={"medium"} onClick={handleChangeToAddItemPage}>
                         Add Item
                     </BaseButton>
                     <User/>
