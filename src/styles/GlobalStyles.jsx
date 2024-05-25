@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
         --color-brand-hover: #0a48ff;
         
         --color-text-normal: #252c51;
+        --color-text-subtitle: #7e858e;
         --color-text-whitesmoke: whitesmoke;
         --color-text-error: darkred;
         

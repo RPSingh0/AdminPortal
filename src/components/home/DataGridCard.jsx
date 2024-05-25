@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledDataGridCardContainer = styled.div`
     display: grid;
     grid-template-rows: 2fr 1fr 1fr;
-    border: 2px solid #d7dfe9;
+    border: 2px solid var(--color-border);
     padding: 2rem;
     gap: 1rem;
     max-height: 25rem;
@@ -25,20 +25,20 @@ const StyledCardHeaderData = styled.div`
 const StyledCardTitle = styled.p`
     margin: 0;
     font-size: 1.8rem;
-    color: #171f46;
+    color: var(--color-text-normal);
     font-weight: bold;
     letter-spacing: 0;
 `;
 
 const StyledCardCategory = styled.p`
     font-size: 1.2rem;
-    color: #7e858e;
+    color: var(--color-text-subtitle);
 `;
 
 const StyledCardImageContainer = styled.div`
     width: 6rem;
     height: 6rem;
-    border: 2px solid #d7dfe9;
+    border: 2px solid var(--color-border);
     padding: 0.1rem;
 `;
 
@@ -51,11 +51,11 @@ const StyledCardImage = styled.img`
 const StyledCardLink = styled.a`
     font-size: 1.2rem;
     text-decoration: none;
-    color: #0b69ff;
+    color: var(--color-brand-normal);
     align-self: center;
 
     &:visited {
-        color: #0b69ff;
+        color: var(--color-brand-normal);
     }
 `;
 
@@ -64,7 +64,7 @@ const StyledCardDescription = styled.p`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color: #7e858e;
+    color: var(--color-text-subtitle);
 `;
 
 function DataGridCard({cardData}) {

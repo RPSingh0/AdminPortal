@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchData, isDataLoading, isErrorLoadingData} from "./dataSlice";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import ErrorFetchingData from "../../ui/ErrorFetchingData";
-
 const HomeData = lazy(() => import("./HomeData"));
 
 const StyledHomePageContainer = styled.div`
