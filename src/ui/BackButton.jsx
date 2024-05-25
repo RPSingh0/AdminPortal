@@ -6,6 +6,7 @@ const StyledButtonContainer = styled.div`
     gap: 1rem;
     align-items: center;
     cursor: pointer;
+    width: max-content;
 `;
 
 const StyledButtonText = styled.p`

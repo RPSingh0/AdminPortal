@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import AsideImage from "./AsideImage";
-import AddItemForm from "./AddItemForm";
+import AddItemFormContainer from "./AddItemFormContainer";
 
 const StyledAddItemPageContainer = styled.div`
     display: grid;
@@ -13,7 +13,7 @@ const StyledAddItemPageContainer = styled.div`
 function AddItem() {
     return (
         <StyledAddItemPageContainer>
-            <AddItemForm/>
+            <AddItemFormContainer/>
             <AsideImage/>
         </StyledAddItemPageContainer>
     );

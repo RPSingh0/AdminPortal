@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {getResourceService} from "../../services/resourceService";
 
 const initialState = {
     data: null,
@@ -46,7 +47,7 @@ export function fetchData() {
     return async function (dispatch) {
         dispatch({type: "data/fetchingData"});
 
-        const result = await fetch('https://media-content.ccbp.in/website/react-assignment/resources.json');
+        const result = await getResourceService();
 
         if (result.status !== 200) {
             dispatch({type: "data/fetchingError"});
