@@ -12,6 +12,6 @@ root.render(
     <Provider store={store}>
         <GlobalStyles/>
         <App/>
-        <ToastContainer theme="colored" position={"bottom-center"}/>
+        <ToastContainer theme="colored" position={"bottom-center"} pauseOnFocusLoss={false}/>
     </Provider>
 );

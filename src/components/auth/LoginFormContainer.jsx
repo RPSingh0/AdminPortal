@@ -75,11 +75,8 @@ function LoginFormContainer() {
                     placeholder={"Use - ProjectUser1"}
                     required
                     disabled={isSubmittingForm}
-                    minLength={5}
+                    errors={state.errors?.userName}
                 />
-                {
-                    state.errors?.userName && <ErrorList errors={state.errors?.userName}/>
-                }
                 <InputField
                     id={"mobile-number"}
                     label={"Mobile Number"}
@@ -94,10 +91,8 @@ function LoginFormContainer() {
                     disabled={isSubmittingForm}
                     minLength={10}
                     maxLength={10}
+                    errors={state.errors?.mobileNumber}
                 />
-                {
-                    state.errors?.mobileNumber && <ErrorList errors={state.errors?.mobileNumber}/>
-                }
                 <InputField
                     id={"password"}
                     label={"Password"}
@@ -110,10 +105,8 @@ function LoginFormContainer() {
                     required
                     disabled={isSubmittingForm}
                     type={"password"}
+                    errors={state.errors?.password}
                 />
-                {
-                    state.errors?.password && <ErrorList errors={state.errors?.password}/>
-                }
                 <BaseButton size={"large"} type={"submit"} disabled={isSubmittingForm || formHasErrors(state.errors)}>
                     Login
                 </BaseButton>

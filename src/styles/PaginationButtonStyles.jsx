@@ -11,6 +11,7 @@ export const StyledButtonContainer = styled.div`
 
 export const StyledButtonText = styled.p`
     font-size: 1.6rem;
+    color: var(--color-brand-normal);
 `;
 
 export const StyledButtonIcon = styled.img`

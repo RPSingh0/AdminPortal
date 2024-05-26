@@ -72,10 +72,8 @@ function AddItemForm() {
                     }}
                     required
                     disabled={isSubmittingForm}
+                    errors={state.errors?.title}
                 />
-                {
-                    state.errors?.title && <ErrorList errors={state.errors?.title}/>
-                }
                 <InputField
                     id={"link"}
                     label={"Link"}
@@ -86,10 +84,8 @@ function AddItemForm() {
                     }}
                     required
                     disabled={isSubmittingForm}
+                    errors={state.errors?.link}
                 />
-                {
-                    state.errors?.link && <ErrorList errors={state.errors?.link}/>
-                }
                 <InputField
                     id={"icon-url"}
                     label={"Icon Url"}
@@ -100,10 +96,8 @@ function AddItemForm() {
                     }}
                     required
                     disabled={isSubmittingForm}
+                    errors={state.errors?.iconUrl}
                 />
-                {
-                    state.errors?.iconUrl && <ErrorList errors={state.errors?.iconUrl}/>
-                }
                 <InputSelect
                     id={"tag-name"}
                     label={"Tag Name"}
@@ -115,10 +109,8 @@ function AddItemForm() {
                     }}
                     required
                     disabled={isSubmittingForm}
+                    errors={state.errors?.tagName}
                 />
-                {
-                    state.errors?.tagName && <ErrorList errors={state.errors?.tagName}/>
-                }
                 <InputField
                     id={"category"}
                     label={"Category"}
@@ -129,10 +121,8 @@ function AddItemForm() {
                     }}
                     required
                     disabled={isSubmittingForm}
+                    errors={state.errors?.category}
                 />
-                {
-                    state.errors?.category && <ErrorList errors={state.errors?.category}/>
-                }
                 <InputTextArea
                     id={"description"}
                     label={"Description"}
@@ -143,10 +133,8 @@ function AddItemForm() {
                     }}
                     required
                     disabled={isSubmittingForm}
+                    errors={state.errors?.description}
                 />
-                {
-                    state.errors?.description && <ErrorList errors={state.errors?.description}/>
-                }
                 <BaseButton size={"large"} type={"submit"} disabled={isSubmittingForm}>
                     Create
                 </BaseButton>

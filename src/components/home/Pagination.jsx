@@ -10,7 +10,7 @@ const StyledPaginationContainer = styled.div`
 `;
 
 const StyledCurrentPageNumber = styled.p`
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 `;
 
 function Pagination({currentPage, changePage, maxPage}) {

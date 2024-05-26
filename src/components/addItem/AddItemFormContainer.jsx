@@ -9,6 +9,8 @@ const StyledAddItemFormContainer = styled.div`
     flex-direction: column;
     gap: 2rem;
     padding: 2rem;
+    max-height: 100dvh;
+    overflow: auto;
 `;
 
 function AddItemFormContainer() {

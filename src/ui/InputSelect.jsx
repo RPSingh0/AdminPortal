@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import {commonInput, StyledInputContainer, StyledInputLabel} from "../styles/InputFieldStyles";
+import ErrorList from "./ErrorList";
 
 const StyledSelect = styled.select`
     ${commonInput};
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     background-color: white;
 `;
 
 
-function InputSelect({id, name, label, optionList, ...props}) {
+function InputSelect({id, name, label, optionList, errors, ...props}) {
     return (
         <StyledInputContainer>
             <StyledInputLabel htmlFor={id}>
@@ -19,6 +20,7 @@ function InputSelect({id, name, label, optionList, ...props}) {
                     <option value={option.toLowerCase()}>{option}</option>
                 )}
             </StyledSelect>
+            {errors && <ErrorList errors={errors}/> }
         </StyledInputContainer>
     );
 }
