@@ -4,6 +4,7 @@ import ErrorList from "./ErrorList";
 
 const StyledInput = styled.textarea`
     ${commonInput};
+    font-size: 1.2rem;
     resize: none;
 `;
 
