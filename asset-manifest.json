@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AdminPortal/static/css/main.f029a054.css",
+    "main.js": "/AdminPortal/static/js/main.6992e987.js",
+    "static/js/462.70501886.chunk.js": "/AdminPortal/static/js/462.70501886.chunk.js",
+    "index.html": "/AdminPortal/index.html",
+    "main.f029a054.css.map": "/AdminPortal/static/css/main.f029a054.css.map",
+    "main.6992e987.js.map": "/AdminPortal/static/js/main.6992e987.js.map",
+    "462.70501886.chunk.js.map": "/AdminPortal/static/js/462.70501886.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f029a054.css",
+    "static/js/main.6992e987.js"
+  ]
+}
