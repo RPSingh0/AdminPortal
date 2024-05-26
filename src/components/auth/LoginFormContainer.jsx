@@ -3,47 +3,26 @@ import InputField from "../../ui/InputField";
 import BaseButton from "../../ui/BaseButton";
 import {useReducer, useState} from "react";
 import ErrorList from "../../ui/ErrorList";
-import {formHasErrors} from "../../utils/utils";
+import {formHasErrors, generateFormData} from "../../utils/utils";
 import {toast} from "react-toastify";
 import {useDispatch} from "react-redux";
 import {loginUser} from "./authSlice";
 import loginFormReducer, {loginFormInitialState} from "./loginFormReducer";
+import {commonFormContainer, commonFormParentContainer, StyledFormHeading} from "../../styles/FormStyles";
 
 const StyledLoginFormContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    ${commonFormParentContainer};
     padding: 2rem;
 `;
 
-const StyledFormHeading = styled.p`
-    color: #171f46;
-    font-size: 3rem;
-`;
 
 const StyledFormContainer = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    ${commonFormContainer};
     padding-top: 3rem;
     width: 40%;
 
     @media (max-width: 768px) {
         width: 60%;
-    }
-
-    @media (max-width: 600px) {
-        width: 80%;
-    }
-
-    @media (max-width: 425px) {
-        width: 90%;
-    }
-
-    @media (max-width: 375px) {
-        width: 100%;
     }
 `;
 
@@ -56,6 +35,14 @@ function LoginFormContainer() {
     function handleFormSubmit(event) {
         event.preventDefault();
         setIsSubmittingForm(true)
+
+        const {userName, mobileNumber, password} = generateFormData(event.target);
+
+        if (!userName || !mobileNumber || !password) {
+            toast.error("Please provide all the fields");
+            setIsSubmittingForm(false);
+            return;
+        }
 
         if (state.userName === "ProjectUser1" && state.mobileNumber === "9988998899" && state.password === "AdminPass@#") {
             dispatchToStore(loginUser({
@@ -96,7 +83,7 @@ function LoginFormContainer() {
                 <InputField
                     id={"mobile-number"}
                     label={"Mobile Number"}
-                    name={"userMobile"}
+                    name={"mobileNumber"}
                     value={state.mobileNumber}
                     onChange={(event) => {
                         dispatch({type: "SET_MOBILE_NUMBER", payload: event.target.value});

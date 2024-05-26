@@ -16,7 +16,7 @@ function InputSelect({id, name, label, optionList, ...props}) {
             </StyledInputLabel>
             <StyledSelect id={id} name={name} {...props}>
                 {optionList.map(option =>
-                    <option>{option}</option>
+                    <option value={option.toLowerCase()}>{option}</option>
                 )}
             </StyledSelect>
         </StyledInputContainer>

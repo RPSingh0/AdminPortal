@@ -5,60 +5,40 @@ import InputTextArea from "../../ui/InputTextArea";
 import BaseButton from "../../ui/BaseButton";
 import {createResourceService} from "../../services/resourceService";
 import {toast} from "react-toastify";
-import {useState} from "react";
+import {useReducer, useState} from "react";
+import {commonFormContainer, commonFormParentContainer, StyledFormHeading} from "../../styles/FormStyles";
+import addItemFormReducer, {addItemFormInitialState} from "./addItemFormReducer";
+import ErrorList from "../../ui/ErrorList";
+import {generateFormData} from "../../utils/utils";
 
 const StyledAddItemFormContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 2rem;
+    ${commonFormParentContainer};
     padding-bottom: 6rem;
     align-self: center;
     justify-self: center;
     width: 100%;
 `;
 
-const StyledFormHeading = styled.p`
-    color: #171f46;
-    font-size: 3rem;
-`;
 
 const StyledFormContainer = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    ${commonFormContainer};
     padding-top: 6rem;
     width: 60%;
-
-    @media (max-width: 600px) {
-        width: 80%;
-    }
-
-    @media (max-width: 425px) {
-        width: 90%;
-    }
-
-    @media (max-width: 375px) {
-        width: 100%;
-    }
 `;
 
 function AddItemForm() {
 
     const [isSubmittingForm, setIsSubmittingForm] = useState(false);
+    const [state, dispatch] = useReducer(addItemFormReducer, addItemFormInitialState);
 
     async function handleFormSubmit(event) {
         event.preventDefault();
         setIsSubmittingForm(true);
 
-        const formData = new FormData(event.target);
-        const data = Object.fromEntries(formData.entries());
-
-        const {title, link, iconUrl, tagName, category, description} = data;
+        const {title, link, iconUrl, tagName, category, description} = generateFormData(event.target);
 
         if (!title || !link || !iconUrl || !tagName || !category || !description) {
-            toast.error("Error creating resource");
+            toast.error("Please provide all the fields");
             setIsSubmittingForm(false);
             return;
         }
@@ -73,7 +53,7 @@ function AddItemForm() {
 
         toast.success("Resource Added");
         setIsSubmittingForm(false);
-        event.target.reset();
+        dispatch({type: 'RESET_FORM'});
     }
 
     return (
@@ -86,50 +66,87 @@ function AddItemForm() {
                     id={"title"}
                     label={"Item Title"}
                     name={"title"}
+                    value={state.title}
+                    onChange={(event) => {
+                        dispatch({type: "SET_TITLE", payload: event.target.value});
+                    }}
                     required
                     disabled={isSubmittingForm}
-                    minLength={5}
                 />
+                {
+                    state.errors?.title && <ErrorList errors={state.errors?.title}/>
+                }
                 <InputField
                     id={"link"}
                     label={"Link"}
                     name={"link"}
+                    value={state.link}
+                    onChange={(event) => {
+                        dispatch({type: "SET_LINK", payload: event.target.value});
+                    }}
                     required
                     disabled={isSubmittingForm}
-                    type={"url"}
                 />
+                {
+                    state.errors?.link && <ErrorList errors={state.errors?.link}/>
+                }
                 <InputField
                     id={"icon-url"}
                     label={"Icon Url"}
                     name={"iconUrl"}
+                    value={state.iconUrl}
+                    onChange={(event) => {
+                        dispatch({type: "SET_ICON_URL", payload: event.target.value});
+                    }}
                     required
                     disabled={isSubmittingForm}
-                    type={"url"}
                 />
+                {
+                    state.errors?.iconUrl && <ErrorList errors={state.errors?.iconUrl}/>
+                }
                 <InputSelect
                     id={"tag-name"}
                     label={"Tag Name"}
                     name={"tagName"}
                     optionList={["User", "Request"]}
+                    value={state.tagName}
+                    onChange={(event) => {
+                        dispatch({type: "SET_TAG_NAME", payload: event.target.value});
+                    }}
                     required
                     disabled={isSubmittingForm}
                 />
+                {
+                    state.errors?.tagName && <ErrorList errors={state.errors?.tagName}/>
+                }
                 <InputField
                     id={"category"}
                     label={"Category"}
                     name={"category"}
+                    value={state.category}
+                    onChange={(event) => {
+                        dispatch({type: "SET_CATEGORY", payload: event.target.value});
+                    }}
                     required
                     disabled={isSubmittingForm}
-                    minLength={5}
                 />
+                {
+                    state.errors?.category && <ErrorList errors={state.errors?.category}/>
+                }
                 <InputTextArea
                     id={"description"}
                     label={"Description"}
                     name={"description"}
+                    value={state.description}
+                    onChange={(event) => {
+                        dispatch({type: "SET_DESCRIPTION", payload: event.target.value});
+                    }}
                     required
                     disabled={isSubmittingForm}
-                    minLength={10}
                 />
+                {
+                    state.errors?.description && <ErrorList errors={state.errors?.description}/>
+                }
                 <BaseButton size={"large"} type={"submit"} disabled={isSubmittingForm}>
                     Create
                 </BaseButton>

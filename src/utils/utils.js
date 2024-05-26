@@ -8,6 +8,11 @@ export function getDataForPage(data, pageNumber) {
     return data.slice(from, to);
 }
 
+export function generateFormData(form) {
+    const formData = new FormData(form);
+    return Object.fromEntries(formData.entries());
+}
+
 export function validatePassword(pwd) {
     const errors = [];
 
@@ -46,6 +51,43 @@ export function validateUserName(userName) {
     }
     if (!/\d/.test(userName)) {
         errors.push('Username must contain at least one number.');
+    }
+
+    return errors;
+}
+
+export function validateLink(link) {
+    const errors = [];
+
+   try {
+       new URL(link);
+   } catch (_) {
+       errors.push('Please enter a valid url');
+   }
+
+    return errors;
+}
+
+export function validateLength(input, minLength, maxLength = null) {
+    const errors = [];
+    const length = input.length;
+
+    if (length < minLength) {
+        errors.push(`Please enter minimum ${minLength} characters.`);
+    }
+
+    if (maxLength !== null && length > maxLength) {
+        errors.push(`Input should not be more then ${maxLength} characters.`);
+    }
+
+    return errors;
+}
+
+export function validateTagName(tagName, allowedTagName) {
+    const errors = [];
+
+    if (!allowedTagName.includes(tagName)) {
+        errors.push(`Please select from available options: ${allowedTagName.join(', ')}`);
     }
 
     return errors;
