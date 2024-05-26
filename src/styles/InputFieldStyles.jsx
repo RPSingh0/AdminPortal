@@ -6,6 +6,7 @@ export const commonInput = css`
     color: #252c51;
     width: 100%;
     font-family: inherit;
+    font-size: 1.2rem;
 
     &:focus {
         outline: none;

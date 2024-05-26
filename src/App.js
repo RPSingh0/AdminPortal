@@ -1,5 +1,5 @@
-import Navbar from "./components/navbar/Navbar";
-import AppLayout from "./components/appLayout/AppLayout";
+import Navbar from "./features/navbar/Navbar";
+import AppLayout from "./features/appLayout/AppLayout";
 import styled from "styled-components";
 
 const StyledAppContainer = styled.div`
